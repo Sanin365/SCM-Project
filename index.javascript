@@ -80,4 +80,90 @@ if (themeBtn) {
     body.classList.add('dark-mode');
   }
 }
+// === Form Validation ===
+const contactForm = document.getElementById('contact-form');
+
+if (contactForm) {
+  contactForm.addEventListener('submit', (e) => {
+    e.preventDefault();
+
+    const name = contactForm.querySelector('#name').value.trim();
+    const email = contactForm.querySelector('#email').value.trim();
+    const message = contactForm.querySelector('#message').value.trim();
+    const errorBox = document.getElementById('form-error');
+
+    if (!name || !email || !message) {
+      errorBox.textContent = 'All fields are required.';
+      errorBox.style.display = 'block';
+      return;
+    }
+
+    if (!validateEmail(email)) {
+      errorBox.textContent = 'Please enter a valid email.';
+      errorBox.style.display = 'block';
+      return;
+    }
+
+    errorBox.style.display = 'none';
+
+    // Simulate submission
+    alert('Message sent successfully!');
+    contactForm.reset();
+  });
+}
+
+function validateEmail(email) {
+  const re = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
+  return re.test(email);
+}
+
+// === Back to Top Button ===
+const backToTop = document.getElementById('back-to-top');
+
+if (backToTop) {
+  window.addEventListener('scroll', () => {
+    if (window.scrollY > 300) {
+      backToTop.style.display = 'block';
+    } else {
+      backToTop.style.display = 'none';
+    }
+  });
+
+  backToTop.addEventListener('click', () => {
+    window.scrollTo({
+      top: 0,
+      behavior: 'smooth'
+    });
+  });
+}
+
+// === Countdown Timer ===
+const countdown = document.getElementById('countdown');
+
+if (countdown) {
+  const targetDate = new Date('2025-12-31T23:59:59').getTime();
+
+  setInterval(() => {
+    const now = new Date().getTime();
+    const distance = targetDate - now;
+
+    if (distance < 0) {
+      countdown.innerHTML = '🎉 Happy New Year!';
+      return;
+    }
+
+    const days = Math.floor(distance / (1000 * 60 * 60 * 24));
+    const hours = Math.floor(
+      (distance % (1000 * 60 * 60 * 24)) / (1000 * 60 * 60)
+    );
+    const minutes = Math.floor(
+      (distance % (1000 * 60 * 60)) / (1000 * 60)
+    );
+    const seconds = Math.floor((distance % (1000 * 60)) / 1000);
+
+    countdown.innerHTML = `
+      ${days}d ${hours}h ${minutes}m ${seconds}s
+    `;
+  }, 1000);
+}
 
