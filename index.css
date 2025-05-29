@@ -1,3 +1,103 @@
+.card p {
+  font-size: 1rem;
+  color: #555;
+}
+
+/* Forms */
+form {
+  background: #fff;
+  padding: 20px;
+  border-radius: 6px;
+  box-shadow: 0 1px 4px rgba(0,0,0,0.1);
+}
+
+form label {
+  display: block;
+  margin-top: 10px;
+}
+
+form input,
+form textarea {
+  width: 100%;
+  padding: 10px;
+  margin-top: 5px;
+  border: 1px solid #ccc;
+  border-radius: 4px;
+}
+
+form button {
+  margin-top: 15px;
+  background-color: #28a745;
+  color: white;
+  border: none;
+  padding: 10px 20px;
+  border-radius: 4px;
+  cursor: pointer;
+}
+
+form button:hover {
+  background-color: #218838;
+}
+
+/* Footer */
+footer {
+  background-color: #111;
+  color: #ccc;
+  text-align: center;
+  padding: 20px;
+}
+
+/* Utility Classes */
+.text-center {
+  text-align: center;
+}
+
+.mt-1 { margin-top: 10px; }
+.mt-2 { margin-top: 20px; }
+.mb-1 { margin-bottom: 10px; }
+.mb-2 { margin-bottom: 20px; }
+
+.p-1 { padding: 10px; }
+.p-2 { padding: 20px; }
+
+/* Responsive */
+@media (max-width: 768px) {
+  nav ul {
+    flex-direction: column;
+    align-items: center;
+  }
+
+  .hero {
+    padding: 60px 20px;
+  }
+
+  .hero h2 {
+    font-size: 2rem;
+  }
+
+  .btn {
+    width: 100%;
+    text-align: center;
+  }
+
+  .grid {
+    grid-template-columns: 1fr;
+  }
+}
+
+@media (max-width: 480px) {
+  body {
+    font-size: 0.9rem;
+  }
+
+  header h1 {
+    font-size: 2rem;
+  }
+
+  .hero h2 {
+    font-size: 1.5rem;
+  }
+}
 /* Reset and base styles */
 * {
   margin: 0;
